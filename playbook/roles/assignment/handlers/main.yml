@@ -1,0 +1,18 @@
+---
+# handlers file for assignment
+
+- name: Reload NGINX
+  service:
+    name: nginx
+    state: reloaded
+- name: start nginx
+  service:
+          name: nginx
+          state: started
+
+- name: install nginx
+  yum:
+          name: nginx
+          state: present
+
+

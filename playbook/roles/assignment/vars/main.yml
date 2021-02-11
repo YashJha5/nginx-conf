@@ -1,0 +1,12 @@
+---
+
+# vars file for webserver
+
+webserver_packages:
+  - git
+
+webserver_static_sites:
+  - name: site1.example.com
+    ansible: /etc/nginx/conf.d/
+    repository: https://github.com/YashJha5/nginx-conf.git
+
