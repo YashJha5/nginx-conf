@@ -1,11 +1,11 @@
 ---
-- name: "NGINX test result"
+- name: "Nginx test result"
   yum: 
     name: nginx
     state: present
   notify: restart nginx
 
-- name: "Updating NGINX Config File Changes"
+- name: "Updating nginx config file changes"
   template:
     dest: /etc/nginx/nginx.conf
     src: nginx.conf
@@ -14,7 +14,7 @@
     mode: 0644
   notify: restart nginx
 
-- name: "NGINX Config File Changes"
+- name: "Nginx config file changes"
   template:
     dest: /etc/nginx/conf.d/site1.example.com.conf
     src: site1.example.com.conf
@@ -23,7 +23,7 @@
     mode: 0644
   notify: restart nginx
 
-- name: "NGINX Config File Changes"
+- name: "Nginx webpage changes"
   template:
     dest: /usr/share/nginx/site1.example.com
     src: site1_index.html
