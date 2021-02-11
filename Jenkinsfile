@@ -4,7 +4,7 @@ pipeline {
         stage('checkout') {
             agent any
             steps {
-				cleanWs()
+		cleanWs()
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Yash-Git-Credentials', url: 'https://github.com/YashJha5/nginx-conf.git']]])
             }
         }
