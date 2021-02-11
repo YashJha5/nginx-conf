@@ -23,3 +23,11 @@
     mode: 0644
   notify: restart nginx
 
+- name: "NGINX Config File Changes"
+  template:
+    dest: /usr/share/nginx/site1.example.com
+    src: site1_index.html
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart nginx
