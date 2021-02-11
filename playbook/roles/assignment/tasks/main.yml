@@ -7,26 +7,27 @@
   when: "'nginx' in services"
 
 - name: "NGINX test result"
-  yum: name=nginx state=present
-  notify: Reload NGINX
+  yum: 
+    name: nginx
+    state: present
+  notify: restart nginx
   when: "'nginx' not in service_facts.services"
 
 - name: "Updating NGINX Config File Changes"
-  copy:
+  template:
     dest: /etc/nginx/nginx.conf
-    src: /var/lib/jenkins/workspace/demo-pipeline/nginx.conf
+    src: nginx.conf
     owner: ansible
     group: ansible
     mode: 0644
-  notify: Reload NGINX
-  when: "'nginx' not in service_facts.services"
+  notify: restart nginx
 
 - name: "NGINX Config File Changes"
-  copy:
+  template:
     dest: /etc/nginx/conf.d/site1.example.com.conf
-    src: /var/lib/jenkins/workspace/demo-pipeline/site1.example.com.conf
+    src: site1.example.com.conf
     owner: ansible
     group: ansible
     mode: 0644
-  notify: Reload NGINX
+  notify: restart nginx
 
