@@ -20,6 +20,7 @@ pipeline {
 
 void deploy() {
     sh '''
+        cd nginx-conf/playbook
         pwd && ls -lrth
         ansible --version && ansible-playbook sites.yml
     '''
