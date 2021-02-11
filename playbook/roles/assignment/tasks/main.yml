@@ -1,17 +1,9 @@
 ---
-- name: "Check if NGINX is installed"
-  service_facts:
-
-- debug:
-    msg: nginx installed!
-  when: "'nginx' in services"
-
 - name: "NGINX test result"
   yum: 
     name: nginx
     state: present
   notify: restart nginx
-  when: "'nginx' not in service_facts.services"
 
 - name: "Updating NGINX Config File Changes"
   template:
