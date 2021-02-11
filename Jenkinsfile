@@ -1,24 +1,26 @@
-stage('checkout') {
-    node('master') {
-        deleteDir()
-        git branch: "${env.branch}",
-            credentialsId: 'Yash-Git-Credentials',
-            url: 'https://github.com/YashJha5/nginx-conf.git'
-  }
+pipeline {
+    agent none
+    stages {
+        stage('checkout') {
+            agent any
+            steps {
+				cleanWs()
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Yash-Git-Credentials', url: 'https://github.com/YashJha5/nginx-conf.git']]])
+            }
+        }
+        stage('deployAnsiblePlaybook') {
+            agent any
+            steps {
+                deploy()
+            }
+        }
 
+    }
 }
 
-
-stage('build') {
-    node('master'){
-        dir("/home/ansible") {
-            sh '''
-            echo "Hello World"
-            pwd
-            git --version
-            ansible-playbook sites.yml
-            '''
-        }
-    }
-    
+void deploy() {
+    sh '''
+        pwd && ls -lrth
+        ansible --version && ansible-playbook sites.yml
+    '''
 }
