@@ -10,12 +10,15 @@ stage('checkout') {
 
 
 stage('build') {
-    node('master'){     
-        sh '''
-        echo "Hello World"
-        pwd
-        git --version
-        '''
+    node('master'){
+        dir("/home/ansible") {
+            sh '''
+            echo "Hello World"
+            pwd
+            git --version
+            ansible-playbook sites.yml
+            '''
+        }
     }
     
 }
