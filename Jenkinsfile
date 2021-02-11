@@ -1,7 +1,7 @@
 stage('checkout') {
     node('master') {
         deleteDir()
-        git branch: "${branch}",
+        git branch: "${env.branch}",
             credentialsId: 'Yash-Git-Credentials',
             url: 'https://github.com/YashJha5/nginx-conf.git'
   }
