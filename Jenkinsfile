@@ -8,3 +8,14 @@ stage('checkout') {
 
 }
 
+
+stage('build') {
+    node('master'){     
+        sh '''
+        echo "Hello World"
+        pwd
+        git --version
+        '''
+    }
+    
+}
