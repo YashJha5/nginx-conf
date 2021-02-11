@@ -1,4 +1,3 @@
-def command="${command}"
 stage('checkout') {
     node('master') {
         deleteDir()
