@@ -1,6 +1,6 @@
 ﻿Architectural Diagram
 
-
+![Alt text](Architecture.png?raw=true "Optional Title")
  
 Introduction
 This repo is about how to set up nginx server on nodes and implement CI-CD on nginx configuration files by using Jenkins and Ansible.
