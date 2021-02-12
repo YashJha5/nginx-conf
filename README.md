@@ -30,13 +30,13 @@ Tools needed for Environment setup:
 
 # How to Setup Nginx on Node server and change configuration of Nginx by CI-CD #
 
-• Create Webhook between your Jenkins and Github so if there is any change in configuration of nginx in github repo pipeline will be triggered.
-• Install Ansible on the Ansible Server only.
-• Add node machines private IP on Ansible configuration file 
-• Create changes in github repo, the pipeline will be triggered.
-• That pipeline will trigger Ansible playbook in it.
-• That Ansible playbook will check if there is any package named nginx is installed over there.
-• If yes then it will update the configuration else it will install nginx first and then update the configuration.
-• Then it will restart the nginx server. 
-• The path to nginx configuration file is playbook/roles/assignment/templates/ 
+1. Create Webhook between your Jenkins and Github so if there is any change in configuration of nginx in github repo pipeline will be triggered.
+2. Install Ansible on the Ansible Server only.
+3. Add node machines private IP on Ansible configuration file 
+4. Create changes in github repo, the pipeline will be triggered.
+5. That pipeline will trigger Ansible playbook in it.
+6. That Ansible playbook will check if there is any package named nginx is installed over there.
+7. If yes then it will update the configuration else it will install nginx first and then update the configuration.
+8. Then it will restart the nginx server. 
+9. The path to nginx configuration file is playbook/roles/assignment/templates/ 
 
