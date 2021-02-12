@@ -25,7 +25,7 @@ Tools needed for Environment setup:
 1. Installed Jenkins on Ansible Server EC2
 2. Create webhook between Jenkins and Github
 3. Installed Ansible on Ansible Server EC2 
-4. Create trust relationship between node machines and Ansible server for ssh connection.
+4. Create trust relationship between node machines and Ansible server for ssh connection
 
 
 # How to Setup Nginx on Node server and change configuration of Nginx by CI-CD #
