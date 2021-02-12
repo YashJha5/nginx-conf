@@ -1,9 +1,14 @@
 ---
+- name: "Check if nginx is installed"
+  package_facts:
+    manager: "auto"
+
 - name: "Nginx test result"
   yum: 
     name: nginx
     state: present
   notify: restart nginx
+  when: "'nginx' not in ansible_facts.packages"
 
 - name: "Updating nginx config file changes"
   template:
